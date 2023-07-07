@@ -1,0 +1,13 @@
+/*Name: Tanimul Islam
+Email: tislam38@myseneca.ca
+ID: 129414223
+Date: 15/6/2023
+********************************
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.*/
+
+Overloading operators, conversion types, and helper functions are powerful techniques in C++ that allows me to do this workshop in a more intuitive and efficient way. They provide flexibility and customization when working with user-defined types.
+
+When it comes to overloading operators, it enables us to define how operators behave when applied to objects of our custom classes. By implementing operator overloading, we can write code that resembles natural language and simplifies complex operations. For example, overloading the "+" operator allows us to concatenate strings or add custom objects in a straightforward manner. Overloading conversion types allows us to define implicit or explicit conversions between different types. This is useful when we want our custom objects to seamlessly interact with built-in types or other user-defined types. It enhances the usability and interoperability of our classes and simplifies code that deals with conversions. Helper functions complement operator overloading and conversion types by providing additional functionality. These functions can be non-member functions or member functions of a class that assist in performing operations or conversions. They encapsulate complex logic, making our code more readable and maintainable. Helper functions can also improve code reuse and modularity, as they can be used across different classes or projects.
+
+In conclusion, overloading operators, conversion types, and using helper functions greatly enhance the expressive power and flexibility of C++. I only find difficulties to make the declarations, I have to look the course note to make a corrext declarions. However, this overload functionality makes the program more easier for me.

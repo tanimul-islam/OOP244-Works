@@ -1,0 +1,9 @@
+*Name: Tanimul Islam
+Email: tislam38@myseneca.ca
+ID: 129414223
+Date: 06/02/2023
+********************************
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.*/
+
+This workshop gave me a brief idea of class and privacy. Moreover, I get to know about member functions. Member functions are functions defined within a class that operate on the class's objects. They are used to perform actions or manipulate the class's data members. Member functions can be declared and defined within the class definition or separately outside the class. They can access the class's private and public members and modify the object's state. Member functions can be categorized as either instance methods (which operate on specific objects of the class) or static methods (which do not require an object and can be called using the class name). In this workshop, I did that so many times. I have both private and public members in my classes. I access all the private members by member functions of the following class. Additionally, I had an overall knowledge about creating a program to show a large number of data and handling memories.
