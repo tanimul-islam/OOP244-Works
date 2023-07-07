@@ -1,0 +1,10 @@
+/*Name: Tanimul Islam
+Email: tislam38@myseneca.ca
+ID: 129414223
+Date: 06/07/2023
+********************************
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.*/
+
+
+In this workshop i get to use Ifstream, ofstream, string objects, and the string library, which are crucial C++ utilities for managing files and manipulating text. The ifstream class enables reading from files, data extraction, and information search. However, ofstream makes it simple to write data to output files for logging, storing user data, or producing reports. The string object is our go-to tool for storing and handling text, allowing us to do operations like concatenation, substring extraction, and text searches. The string library provides the c_str function, which is very efficient and handy.However, I was having problem with default arguement. Which I eventually solved by only declaring them into header file. Combining ifstream, ofstream, string objects, and the string library equips us with a powerful set of tools for efficient file handling and text manipulation, enhancing code readability and saving valuable time in C++ programming.
