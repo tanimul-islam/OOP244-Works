@@ -22,8 +22,12 @@ namespace sdds {
       strCpy(m_value, lineValue);
       return *this;
    }
-   Line::~Line() {
-      delete[] m_value;
+   Line::~Line()
+   {
+      if (m_value != nullptr) {
+         delete[] m_value;
+         m_value = nullptr;
+      }
    }
    void TextFile::setEmpty() {
       //deletes the m_nextLine dynamic Array , when it is not nullptr
@@ -36,6 +40,7 @@ namespace sdds {
          delete[] m_filename;
          m_filename = nullptr;
       }
+      m_noOfLines = 0;
    }
    void TextFile::setFilename(const char* fname, bool isCopy) {
       //creating a dynamic string for filename
@@ -44,32 +49,32 @@ namespace sdds {
          strCpy(m_filename, fname);
       }
       else {
-         m_filename = new char[strLen(fname) + 1];
+         m_filename = new char[strLen("C_") + strLen(fname) + 1];
          //adding "_C" as prefix using strCpy and strCat from cstring library
          strCpy(m_filename, "C_");
          strCat(m_filename, fname);
       }
    }
 
-   void TextFile::setNoOfLines() {
+   void TextFile::setNoOfLines()
+   {
       ifstream file(m_filename);
       char ch;
-     
-      while (file.get(ch)) {
-         if (ch == '\n') {
+      if (file.is_open()) {
+         while (file.get(ch)) {
+            if (ch == '\n') {
+               m_noOfLines++;
+            }
+         }
+         if (file.eof() && m_noOfLines > 0) {
             m_noOfLines++;
          }
       }
-      //adding an extra line count at the end of the file
-      if (file.eof() && m_noOfLines > 0) {
-         m_noOfLines++;
-      }
-
-      if (m_noOfLines == 0) {
+   
+      else {
          delete[] m_filename;
          m_filename = nullptr;
       }
-
    }
    void TextFile::loadText() {
       unsigned i = 0;
@@ -97,7 +102,7 @@ namespace sdds {
    void TextFile::saveAs(const char* fileName)const {
       unsigned i = 0;
       ofstream outFile(fileName);
-      for (i; i < m_noOfLines; i++) {
+      for (i = 0; i < m_noOfLines; i++) {
          outFile << m_textLines[i] << endl;
       }
    }
@@ -118,17 +123,26 @@ namespace sdds {
    }
 
    TextFile::TextFile(const TextFile& source) {
+      unsigned i = 0;
       setEmpty();
       this->m_pageSize = source.m_pageSize;
-      if (this != &source) { //preventing self-copy
-         if (source.m_textLines && source.m_noOfLines > 0) {
+
+     
+      if (this != &source) //preventing self copy
+      {
+         if (source.m_textLines && source.m_noOfLines > 0) {           
             setFilename(source.m_filename, true);
-            setNoOfLines();
-            loadText();
-            saveAs(m_filename);   
+            this->m_noOfLines = source.m_noOfLines;
+            m_textLines = new Line[m_noOfLines];
+            for ( i = 0; i < m_noOfLines; i++) {
+               m_textLines[i].m_value = new char[strLen(source.m_textLines[i].m_value) + 1]; //allocating memroy for each line string
+               strCpy(m_textLines[i].m_value, source.m_textLines[i].m_value);
+            }
+            saveAs(m_filename);
          }
-      }
+      }   
    }
+
 
    TextFile& TextFile::operator=(const TextFile& incomingTxt) {
       if (this != &incomingTxt) {
@@ -136,22 +150,31 @@ namespace sdds {
             delete[] m_textLines;
             m_textLines = nullptr;
          }
-         setNoOfLines();
-         loadText();
-         saveAs(m_filename);
-      }
+         if (incomingTxt.m_textLines && incomingTxt.m_noOfLines > 0) {
+            this->m_noOfLines = incomingTxt.m_noOfLines;
+            m_textLines = new Line[m_noOfLines];
+
+            unsigned i = 0;
+            while (i < m_noOfLines) {
+               m_textLines[i].m_value = new char[strLen(incomingTxt.m_textLines[i].m_value) + 1];
+               strCpy(m_textLines[i].m_value, incomingTxt.m_textLines[i].m_value);
+               i++;
+            }
+
+            saveAs(m_filename);
+         }
+      }     
       return *this;
    }
 
    TextFile::~TextFile() {
-      if (m_textLines != nullptr) {
-         delete[] m_textLines;
-         m_textLines = nullptr;
-      }
-
       if (m_filename != nullptr) {
          delete[] m_filename;
          m_filename = nullptr;
+      }
+      if (m_textLines != nullptr) {
+         delete[] m_textLines;
+         m_textLines = nullptr;
       }
    }
 
