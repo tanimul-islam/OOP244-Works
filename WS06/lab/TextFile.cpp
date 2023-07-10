@@ -184,7 +184,7 @@ namespace sdds {
       ostr.fill('=');
       ostr.width(strLen(m_filename));
       ostr << '=' << endl;
-      for (int i = 0; i < m_noOfLines && i < m_pageSize; i++) {
+      for ( i = 0; i < m_noOfLines && i < m_pageSize; i++) {
          ostr << m_textLines[i] << endl;
       }
       //checking the pageSize
@@ -194,7 +194,7 @@ namespace sdds {
             char enter;
             ostr << "Hit ENTER to continue...";
             cin.get(enter);
-            for (int j = 0; i < m_noOfLines && j < m_pageSize; j++) {
+            for ( j = 0; i < m_noOfLines && j < m_pageSize; j++) {
                ostr << m_textLines[i] << endl;
                i++;
             }
@@ -217,12 +217,13 @@ namespace sdds {
    }
 
    TextFile::operator bool()const {
+
+      bool value = false;
       if (m_textLines != nullptr) {
-         return true;
+         value = true;
       }
-      else if (m_textLines == nullptr) {
-         return false;
-      }
+      return value;
+      
    }
 
    unsigned TextFile::lines()const {
@@ -243,6 +244,7 @@ namespace sdds {
          }
          return m_textLines[index].m_value;
       }
+      return nullptr;
    }
 
    std::ostream& operator<<(std::ostream& ostr, const TextFile& text) {
