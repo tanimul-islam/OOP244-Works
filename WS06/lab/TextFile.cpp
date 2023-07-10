@@ -180,28 +180,30 @@ namespace sdds {
    }
 
    std::ostream& TextFile::view(std::ostream& ostr)const {
-      unsigned i = 0;
-      ostr << m_filename << endl;
-      ostr.fill('=');
-      ostr.width(strLen(m_filename));
-      ostr << '=' << endl;
-      for ( i = 0; i < m_noOfLines && i < m_pageSize; i++) {
-         ostr << m_textLines[i] << endl;
+      if (m_filename != nullptr && m_textLines != nullptr) {
+         unsigned i = 0;
+         ostr << m_filename << endl;
+         ostr.fill('=');
+         ostr.width(strLen(m_filename));
+         ostr << '=' << endl;
+         for (i = 0; i < m_noOfLines && i < m_pageSize; i++) {
+            ostr << m_textLines[i] << endl;
+         }
+         //checking the pageSize
+         if (i < m_noOfLines) { //means more line remains. Giving prompt
+            do {
+               unsigned j = 0;
+               char enter;
+               ostr << "Hit ENTER to continue...";
+               cin.get(enter);
+               for (j = 0; i < m_noOfLines && j < m_pageSize; j++) {
+                  ostr << m_textLines[i] << endl;
+                  i++;
+               }
+            } while (i < m_noOfLines);
+         }
+         return ostr;
       }
-      //checking the pageSize
-      if (i < m_noOfLines) { //means more line remains. Giving prompt
-         do {
-            unsigned j = 0;
-            char enter;
-            ostr << "Hit ENTER to continue...";
-            cin.get(enter);
-            for ( j = 0; i < m_noOfLines && j < m_pageSize; j++) {
-               ostr << m_textLines[i] << endl;
-               i++;
-            }
-         } while (i < m_noOfLines);
-      }
-      return ostr;
    }
 
    std::istream& TextFile::getFile(std::istream& istr) {
