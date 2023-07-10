@@ -202,8 +202,9 @@ namespace sdds {
                }
             } while (i < m_noOfLines);
          }
-         return ostr;
+         
       }
+      return ostr;
    }
 
    std::istream& TextFile::getFile(std::istream& istr) {
