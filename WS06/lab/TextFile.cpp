@@ -145,6 +145,7 @@ namespace sdds {
 
 
    TextFile& TextFile::operator=(const TextFile& incomingTxt) {
+      unsigned i = 0;
       if (this != &incomingTxt) {
          if (m_textLines != nullptr) {
             delete[] m_textLines;
@@ -154,7 +155,7 @@ namespace sdds {
             this->m_noOfLines = incomingTxt.m_noOfLines;
             m_textLines = new Line[m_noOfLines];
 
-            unsigned i = 0;
+            
             while (i < m_noOfLines) {
                m_textLines[i].m_value = new char[strLen(incomingTxt.m_textLines[i].m_value) + 1];
                strCpy(m_textLines[i].m_value, incomingTxt.m_textLines[i].m_value);
