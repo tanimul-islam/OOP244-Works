@@ -12,7 +12,6 @@
 #include <iomanip>
 #include <iostream>
 #include <ctime>
-#include <limits>
 using namespace std;
 #include "Date.h"
 namespace sdds {
@@ -104,7 +103,7 @@ namespace sdds {
 
       if (is.fail()) {
          is.clear();
-         is.ignore(std::numeric_limits < std::streamsize > ::max(), '\n');//Flushig
+         is.ignore(45678, '\n');//Flushig
          errCode(CIN_FAILED);
       }
       else {

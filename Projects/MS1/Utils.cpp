@@ -13,7 +13,7 @@
 //
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
-#include <limits>
+
 #include "Utils.h"
 
 namespace sdds {
@@ -117,14 +117,13 @@ namespace sdds {
       bool validInput = false;
 
       while (!validInput) {
-         std::cout << "Enter your selection: ";
          if (!(std::cin >> input)) {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid Selection, try again: " << std::endl;
+            std::cin.ignore(45678, '\n');
+            std::cout << "Invalid Selection, try again: ";
          }
          else if (input < lowerLimit || input > upperLimit){
-            std::cout << "Invalid Selection, try again: " << std::endl;
+            std::cout << "Invalid Selection, try again: ";
          }
          else {
             validInput = true;
