@@ -58,8 +58,8 @@ namespace sdds {
       bool operator>(const Date& other) const;
 
       //- method overload
-      int operator-(const Date& other);
-
+      int operator-(const Date& otherDate)const;
+    
       //Type conversion overload
       operator bool()const;
 

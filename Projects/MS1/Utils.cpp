@@ -15,6 +15,7 @@
 ***********************************************************************/
 
 #include "Utils.h"
+
 namespace sdds {
    void strCpy(char* des, const char* src) {
 
@@ -110,7 +111,7 @@ namespace sdds {
       *des = '\0'; // Add null-terminating character at the end
    }
 
-
+   //Function for getting the user input for menu
    int getUserInput(int lowerLimit, int upperLimit) {
       int input;
       bool validInput = false;
@@ -120,8 +121,9 @@ namespace sdds {
          if (!(std::cin >> input)) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid Selection, try again: " << std::endl;
          }
-         else if (input < lowerLimit || input > upperLimit) {
+         else if (input < lowerLimit || input > upperLimit){
             std::cout << "Invalid Selection, try again: " << std::endl;
          }
          else {
@@ -131,4 +133,5 @@ namespace sdds {
 
       return input;
    }
+
 }

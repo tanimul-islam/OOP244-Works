@@ -131,7 +131,7 @@ namespace sdds {
       return itemCount;
    }
    Menu::operator bool() {
-      if (itemCount <= 1){
+      if (itemCount > 0){
          return true;
       }
       return false;

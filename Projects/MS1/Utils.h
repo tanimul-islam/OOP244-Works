@@ -29,5 +29,6 @@ namespace sdds {
 
 	//Module-Functions
 	int getUserInput(int lowerLimit, int upperLimit);
+	
 }
 #endif // SDDS_UTILS_H__

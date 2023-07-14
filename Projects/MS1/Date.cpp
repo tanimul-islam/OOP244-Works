@@ -95,7 +95,6 @@ namespace sdds {
 
    std::istream& Date::read(std::istream& is) {
       errCode(NO_ERROR);
-
       is >> m_year;
       is.ignore();
       is >> m_mon;
@@ -103,13 +102,14 @@ namespace sdds {
       is >> m_day;
 
       if (is.fail()) {
-         errCode(CIN_FAILED);
          is.clear();
+         is.ignore(std::numeric_limits < std::streamsize > ::max(), '\n');//Flushig
+         errCode(CIN_FAILED);
       }
-      //Flushig
-      is.ignore(std::numeric_limits < std::streamsize > ::max(), '\n');
+      else {
+         validate();
+      } 
       return is;
-
    }
    std::ostream& Date::write(std::ostream& os)const {
       if (bad()) {
@@ -148,15 +148,9 @@ namespace sdds {
       return this->daysSince0001_1_1() > other.daysSince0001_1_1();
    }
 
-   int Date::operator-(const Date& other) {
-      int days{0};
-      if (this->daysSince0001_1_1() > other.daysSince0001_1_1()) {
-        days = this->daysSince0001_1_1() - other.daysSince0001_1_1();
-      }
-      else {
-         days = other.daysSince0001_1_1() - this->daysSince0001_1_1();
-      }
-      return days;
+   int Date::operator-(const Date& otherDate)const {
+
+      return daysSince0001_1_1() - otherDate.daysSince0001_1_1();
    }
 
    Date::operator bool()const {
