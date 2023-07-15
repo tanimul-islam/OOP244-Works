@@ -28,7 +28,7 @@ namespace sdds {
    bool LibApp::confirm(const char* message) {
       bool flag = false;
       Menu menu(message);
-      menu << "yes";
+      menu << "Yes";
 
       if (menu.run()) {
          flag = true;

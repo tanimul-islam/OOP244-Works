@@ -76,6 +76,7 @@ namespace sdds {
       unsigned int i{};
       for (i = 0; i < MAX_MENU_ITEMS; i++) {
          delete items[i];
+         items[i] = nullptr;
       }
 
    }
