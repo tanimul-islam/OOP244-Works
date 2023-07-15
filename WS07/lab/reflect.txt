@@ -1,0 +1,9 @@
+/*Name: Tanimul Islam
+Email: tislam38@myseneca.ca
+ID: 129414223
+Date: 15/07/2023
+********************************
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.*/
+
+In this workshop I deeply learend about hierarchical structures in object-oriented programming. Hierarchical Inheritance in C++ is a type of inheritance that involves a hierarchical structure of classes. In this type of inheritance, a single base class can have multiple derived classes, and these derived classes can, in turn, be inherited by other subclasses, resulting in a hierarchy of classes. In this workshop we used MotorVehicle and Truck classes. The Truck class inherits from MotorVehicle and adds specific functionalities for cargo handling. It introduces additional data members for capacity and current cargo load, along with specialized functions for loading and unloading cargo. This hierarchical structure promotes code efficiency by reusing code from the base class. It also enables polymorphism, allowing Truck objects to be treated as MotorVehicle objects. This flexibility simplifies code and enhances maintainability.I found this concept highly effective in terms of code reusability and logical organization. However, this concept bring some cons to the program such as tight coupling and limited flecibility in terms of class relationship.
