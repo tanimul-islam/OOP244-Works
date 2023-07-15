@@ -31,14 +31,12 @@ namespace sdds {
          cout << m_address << " ---> ";
 
          cout.width(20);
-         cout.unsetf(ios::right);
-         cout.setf(ios::left);
-         cout << address << "|" << endl;
+         cout << left << address << "|" << right << endl;
          strCpy(m_address, address);
 ;     }
    }
    ostream& MotorVehicle::write(ostream& os)const {
-      os << "| ";
+      os << "|";
       os.width(5);
       os << m_yearBuilt << " | " << m_licenseNo << " | " << m_address;
 
