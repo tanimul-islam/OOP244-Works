@@ -25,16 +25,17 @@ namespace sdds {
          cout << "|";
          cout.width(8);
          cout.setf(ios::right);
-         cout << m_licenseNo<<"| |";
+         cout << m_licenseNo << "| |";
 
          cout.width(20);
          cout << m_address << " ---> ";
 
          cout.width(20);
-         cout << left << address << "|" << right << endl;
+         cout << left << address << "|" << endl;
          strCpy(m_address, address);
-;     }
+      }
    }
+
    ostream& MotorVehicle::write(ostream& os)const {
       os << "|";
       os.width(5);

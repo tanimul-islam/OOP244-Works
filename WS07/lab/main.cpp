@@ -80,7 +80,7 @@ int main()
 		printHeader("T3: Truck");
 
 		Truck aTruck("T-1111", 2015, 5432, "Toronto HQ");
-		cout << endl;
+		//cout << endl;
 
 		moveAndLoad(aTruck, "Toronto Deposit", 2345);
 
