@@ -18,7 +18,7 @@ namespace sdds {
    //Constructor-initialize and set the attributes and load the publication records from database
    LibApp::LibApp():m_mainMenu("Seneca Libray Application"),
       m_exitMenu("Changes have been made to the data, what would you like to do?") {
-      bool m_changed = false ;
+      m_changed = false ;
       m_mainMenu << "Add New Publication" << "Remove Publication" 
          << "Checkout publication from library" << "Return publication to library";
       m_exitMenu << "Save changes and exit" << "Cancel and go back to the main menu";
