@@ -38,7 +38,7 @@ namespace sdds {
    }
    MenuItem::~MenuItem() {
       if (menuContent != nullptr) {
-         delete menuContent;
+         delete[] menuContent;
          menuContent = nullptr;
       }
    }
