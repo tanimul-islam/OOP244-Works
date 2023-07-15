@@ -24,14 +24,13 @@ namespace sdds {
       if (strCmp(m_address, address) != 0) {
          cout << "|";
          cout.width(8);
-         cout.setf(ios::right);
          cout << m_licenseNo << "| |";
 
          cout.width(20);
          cout << m_address << " ---> ";
 
          cout.width(20);
-         cout << left << address << "|" << endl;
+         cout << left << address << "|" << right << endl;
          strCpy(m_address, address);
       }
    }
