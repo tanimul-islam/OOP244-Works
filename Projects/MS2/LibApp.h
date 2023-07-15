@@ -30,7 +30,6 @@ namespace sdds {
       void checkOutPub();
    public:
       LibApp();
-      virtual ~LibApp() {};
       void run();
 
    };

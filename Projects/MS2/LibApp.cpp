@@ -16,7 +16,7 @@
 using namespace std;
 namespace sdds {
    //Constructor-initialize and set the attributes and load the publication records from database
-   LibApp::LibApp():m_mainMenu("Seneca Libray Application"),
+   LibApp::LibApp():m_mainMenu("Seneca Library Application"),
       m_exitMenu("Changes have been made to the data, what would you like to do?") {
       m_changed = false ;
       m_mainMenu << "Add New Publication" << "Remove Publication" 
@@ -32,6 +32,10 @@ namespace sdds {
 
       if (menu.run()) {
          flag = true;
+      
+      }
+      else {
+         cout << endl;
       }
       return flag;
    }
@@ -48,7 +52,7 @@ namespace sdds {
    void LibApp::returnPub() {
       search();
       cout << "Returning publication" << endl;
-      cout << "Publication returned" << endl;
+      cout << "Publication returned" << endl << endl;;
       m_changed = true;
    }
    //adding new publication
@@ -56,7 +60,7 @@ namespace sdds {
       cout << "Adding new publication to library" << endl;
       if (confirm("Add this publication to library?")) {
          m_changed = true;
-         cout << "Publication added" << endl;
+         cout << "Publication added" << endl << endl;;
       }
    }
    //
@@ -65,14 +69,14 @@ namespace sdds {
       search();
       if (confirm("Remove this publication from the library?")) {
          m_changed = true;
-         cout << "Publication removed" << endl;
+         cout << "Publication removed" << endl << endl;
       }
    }
    void LibApp::checkOutPub() {
       search();
       if (confirm("Check out publication?")) {
          m_changed = true;
-         cout << "Publication checked out" << endl;
+         cout << "Publication checked out" << endl<<endl;
       }
    }
    void LibApp::run() {
