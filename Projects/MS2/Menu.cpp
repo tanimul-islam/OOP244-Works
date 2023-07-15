@@ -39,7 +39,7 @@ namespace sdds {
    }
    MenuItem::~MenuItem() {
       if (menuContent != nullptr) {
-         delete menuContent;
+         delete[] menuContent;
          menuContent = nullptr;
       }
    }
@@ -74,10 +74,13 @@ namespace sdds {
    Menu::Menu(const char* title) : titleOfMenu(title) {};
    Menu::~Menu() {
       unsigned int i{};
-      for (i = 0; i < MAX_MENU_ITEMS; i++) {
-         delete items[i];
-         items[i] = nullptr;
+      if (items != nullptr) {
+         for (i = 0; i < MAX_MENU_ITEMS; i++) {
+            delete items[i];
+            items[i] = nullptr;
+         }
       }
+     
 
    }
    //Display the Title of Menu
