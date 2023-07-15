@@ -38,7 +38,7 @@ namespace sdds {
 ;     }
    }
    ostream& MotorVehicle::write(ostream& os)const {
-      os << "|";
+      os << "| ";
       os.width(5);
       os << m_yearBuilt << " | " << m_licenseNo << " | " << m_address;
 
