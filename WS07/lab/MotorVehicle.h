@@ -18,7 +18,7 @@ namespace sdds {
       unsigned int m_yearBuilt{};
    public:
       MotorVehicle();
-      MotorVehicle(const char* licenseNo, int year);
+      MotorVehicle(const char* licenseNo, int year, const char* location = "Factory");
       virtual ~MotorVehicle();
       void moveTo(const char* address);
       std::ostream& write(std::ostream& os)const;

@@ -19,7 +19,7 @@ namespace sdds {
       if (weight > 0) {
          maxWeight = weight;
       }
-      else if (address) {
+      if (address) {
          this->moveTo(address);
       }
    }

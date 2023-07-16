@@ -12,12 +12,12 @@ that my professor provided to complete my workshops and assignments.*/
 using namespace std;
 namespace sdds {
    MotorVehicle::MotorVehicle() {};
-   MotorVehicle::MotorVehicle(const char* licenseNo, int year) {
-      strnCpy(m_licenseNo, licenseNo, LICENSE_NUMBER_SZ - 1);
-      m_licenseNo[LICENSE_NUMBER_SZ - 1] = '\0';
-      strnCpy(m_address, "Factory", ADDRESS_SZ - 1);
-      m_address[ADDRESS_SZ - 1] = '\0';
+   MotorVehicle::MotorVehicle(const char* licenseNo, int year, const char* location) {
+      if (licenseNo) {
+         strnCpy(m_licenseNo, licenseNo, LICENSE_NUMBER_SZ - 1);
+      }
       m_yearBuilt = year;
+      strnCpy(m_address, location, ADDRESS_SZ - 1);  
    }
    MotorVehicle::~MotorVehicle() {};
    void MotorVehicle::moveTo(const char* address) {
