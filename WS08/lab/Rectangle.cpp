@@ -83,7 +83,7 @@ namespace sdds {
          os << '+';
          os.width(m_width - 2);
          os.fill('-');
-         os << '-' << '+' << endl;
+         os << '-' << '+';
       }
    }
 }
