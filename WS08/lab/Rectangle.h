@@ -11,14 +11,14 @@ that my professor provided to complete my workshops and assignments.*/
 #include"LblShape.h"
 namespace sdds {
    class Rectangle :public LblShape {
-      unsigned int m_width;
-      unsigned int m_height;
+      unsigned int m_width{};
+      unsigned int m_height{};
    public:
       Rectangle();
-      Rectangle(const char* label,  int height,  int width);
+      Rectangle(const char* label, int width, int height);
       virtual ~Rectangle() {};
-      void  getSpecs(std::istream& is);
+      void getSpecs(std::istream& is);
       void draw(std::ostream& os)const;
-};
+   };
 }
 #endif // !SDDS_RECTANGLE_H_

@@ -16,9 +16,16 @@ namespace sdds {
       m_height = 0;
       m_width = 0;
    }
-   Rectangle::Rectangle(const char* label,  int height,  int width) : LblShape::LblShape(label)
+   Rectangle::Rectangle(const char* label, int width, int height) : LblShape(label)
    {
-      if (height > 3 && width > (strLen(LblShape::lable()) + 2)) {
+      int tempLen = strLen(LblShape::label()) + 2;
+
+      if (height < 3 && width < tempLen) {
+         // Set to an empty state
+         m_height = 0;
+         m_width = 0;
+      }
+      else {
          m_height = height;
          m_width = width;
       }
@@ -52,29 +59,31 @@ namespace sdds {
    {
       unsigned int i = 0;
       if (m_height > 0 && m_width > 0) {
-         //first line
+         // First line
          os << '+';
          os.width(m_width - 2);
          os.fill('-');
-         os << '+' << endl;
-         //second line
+         os << '-' << '+' << endl;
+
+         // Second line
          os << '|';
          os.width(m_width - 2);
          os.fill(' ');
-         os << left << LblShape::lable() << '|' << endl;
-        // next(m_height - 3) lines
+         os << left << LblShape::label() << '|' << endl;
+
+         // Next (m_height - 3) lines
          for (i = 0; i < (m_height - 3); i++) {
             os << '|';
             os.width(m_width - 2);
             os.fill(' ');
-            os << '|' << endl;
+            os << ' ' << '|' << endl;
          }
-         //last line
+
+         // Last line
          os << '+';
          os.width(m_width - 2);
          os.fill('-');
-         os << '+' << endl;
-
+         os << '-' << '+' << endl;
       }
    }
 }

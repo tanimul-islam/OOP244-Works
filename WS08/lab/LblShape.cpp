@@ -10,13 +10,13 @@ that my professor provided to complete my workshops and assignments.*/
 #include "Utils.h"
 using namespace std;
 namespace sdds {
-   const char* LblShape::lable()const {
+   const char* LblShape::label()const {
       return m_label;
    }
    LblShape::LblShape(const char* label) {
       if (label && label[0] != '\0') {
          m_label = new char[strLen(label) + 1];
-         strCpy(m_label, m_label);
+         strCpy(m_label, label);
       } 
    }
    LblShape::~LblShape() {

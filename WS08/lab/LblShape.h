@@ -12,10 +12,10 @@ namespace sdds {
    class LblShape : public Shape {
       char* m_label{nullptr};
    protected:
-      const char* lable()const;
+      const char* label()const;
    public:
       LblShape() = default;
-      LblShape(const char* lable);
+      LblShape(const char* label);
       virtual ~LblShape();
       LblShape(const LblShape& source) = delete;
       LblShape& operator=(const LblShape& source) = delete;

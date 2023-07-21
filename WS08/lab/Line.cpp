@@ -40,8 +40,8 @@ namespace sdds {
 
    void Line::draw(std::ostream& os) const
    {
-      if (m_length > 0 && LblShape::lable()){
-         os << LblShape::lable() << endl;
+      if (m_length > 0 && LblShape::label()){
+         os << LblShape::label() << endl;
          os.width(m_length);
          os.fill('=');
          os << '=';
