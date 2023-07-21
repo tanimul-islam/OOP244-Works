@@ -16,7 +16,7 @@ namespace sdds {
       m_height = 0;
       m_width = 0;
    }
-   Rectangle::Rectangle(const char* label, unsigned int height, unsigned int width) : LblShape::LblShape(label)
+   Rectangle::Rectangle(const char* label,  int height,  int width) : LblShape::LblShape(label)
    {
       if (height > 3 && width > (strLen(LblShape::lable()) + 2)) {
          m_height = height;

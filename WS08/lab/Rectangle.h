@@ -15,7 +15,7 @@ namespace sdds {
       unsigned int m_height;
    public:
       Rectangle();
-      Rectangle(const char* label, unsigned int height, unsigned int width);
+      Rectangle(const char* label,  int height,  int width);
       virtual ~Rectangle() {};
       void  getSpecs(std::istream& is);
       void draw(std::ostream& os)const;

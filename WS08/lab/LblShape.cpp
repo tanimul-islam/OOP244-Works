@@ -28,7 +28,7 @@ namespace sdds {
       string newLabel;
       getline(is, newLabel, ',');
       delete[] m_label;
-      m_label = new char[strlen(newLabel.c_str()) + 1];
+      m_label = new char[strLen(newLabel.c_str()) + 1];
       strCpy(m_label, newLabel.c_str());
    }
 
