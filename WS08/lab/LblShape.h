@@ -5,8 +5,8 @@ Date: 20/7/2023
 ********************************
 I have done all the coding by myself and only copied the code
 that my professor provided to complete my workshops and assignments.*/
-#ifndef LBLSHAPE_H
-#define SDDS_LBL_SHAPE_H
+#ifndef SDDS_LBLSHAPE_H_
+#define SDDS_LBLSHAPE_H_
 #include "Shape.h"
 namespace sdds {
    class LblShape : public Shape {
@@ -22,4 +22,4 @@ namespace sdds {
       void getSpecs(std::istream& is);
    };
 }
-#endif // !LBLSHAPE_H
+#endif // !SDDS_LBLSHAPE_H_

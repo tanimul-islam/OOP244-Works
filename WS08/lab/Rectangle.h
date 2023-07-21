@@ -6,8 +6,8 @@ Date: 20/7/2023
 I have done all the coding by myself and only copied the code
 that my professor provided to complete my workshops and assignments.*/
 
-#ifndef RECTANGLE_H
-#define SDDS_RECTANGLE_H
+#ifndef SDDS_RECTANGLE_H_
+#define SDDS_RECTANGLE_H_
 #include"LblShape.h"
 namespace sdds {
    class Rectangle :public LblShape {
@@ -21,4 +21,4 @@ namespace sdds {
       void draw(std::ostream& os)const;
 };
 }
-#endif // !RECTANGLE_H
+#endif // !SDDS_RECTANGLE_H_

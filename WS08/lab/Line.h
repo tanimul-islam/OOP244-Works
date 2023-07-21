@@ -5,8 +5,8 @@ Date: 20/7/2023
 ********************************
 I have done all the coding by myself and only copied the code
 that my professor provided to complete my workshops and assignments.*/
-#ifndef LINE_H
-#define SDDS_LINE_H
+#ifndef SDDS_LINE_H_
+#define SDDS_LINE_H_
 #include "LblShape.h"
 namespace sdds {
    class Line : public LblShape {
@@ -19,4 +19,4 @@ namespace sdds {
       void draw(std::ostream& os)const;
    };
 }
-#endif // !LINE_H
+#endif // !SDDS_LINE_H_
