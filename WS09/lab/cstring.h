@@ -14,7 +14,7 @@ namespace sdds {
 	void strnCpy(char* des, const char* src, int len);
 	int strCmp(const char* s1, const char* s2);
 	int strnCmp(const char* s1, const char* s2, int len);
-	size_t strLen(const char* s);
+	int strLen(const char* s);
 	const char* strStr(const char* str1, const char* str2);
 	void strCat(char* des, const char* src);
 }
