@@ -17,7 +17,7 @@ namespace sdds {
    HtmlText& HtmlText::operator=(const HtmlText& source)
    {
       if (this != &source) {
-         (Text&)*this = source;
+         Text::operator= (source);
          if (m_title) delete[] m_title;
          if (source.m_title) {
             m_title = new char[strLen(m_title) + 1];

@@ -54,8 +54,8 @@ namespace sdds {
       return *s1 - *s2;
    }
 
-   int strLen(const char* s) {
-      int length = 0;
+   size_t strLen(const char* s) {
+      size_t length = 0;
       while (*s != '\0') {
          length++;
          s++;
