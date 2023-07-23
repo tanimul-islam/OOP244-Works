@@ -20,7 +20,7 @@ namespace sdds {
          Text::operator= (source);
          if (m_title) delete[] m_title;
          if (source.m_title) {
-            m_title = new char[strLen(m_title) + 1];
+            m_title = new char[strLen(source.m_title) + 1];
             strCpy(this->m_title, source.m_title);
          }
          else m_title = nullptr;
