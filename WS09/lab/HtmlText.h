@@ -10,7 +10,7 @@ that my professor provided to complete my workshops and assignments.*/
 #include "Text.h"
 namespace sdds {
    class HtmlText :  public Text {
-      char* m_title;
+      char* m_title{};
    public:
       HtmlText(const char* filename=nullptr, const char* title = nullptr);
       //Rule of Three

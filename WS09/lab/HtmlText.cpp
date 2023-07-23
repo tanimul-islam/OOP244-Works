@@ -18,7 +18,7 @@ namespace sdds {
    {
       if (this != &source) {
          (Text&)*this = source;
-         if (m_title) delete m_title;
+         if (m_title) delete[] m_title;
          if (source.m_title) {
             m_title = new char[strLen(m_title) + 1];
             strCpy(this->m_title, source.m_title);
@@ -30,7 +30,7 @@ namespace sdds {
 
    HtmlText::~HtmlText()
    {
-      if (m_title) delete m_title;
+      if (m_title) delete[] m_title;
    }
 
    void HtmlText::write(std::ostream& os) const

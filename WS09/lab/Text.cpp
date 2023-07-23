@@ -39,7 +39,7 @@ namespace sdds {
    {
       if (this != &source) {
          if (m_filename) {
-            delete m_filename;
+            delete[] m_filename;
          }
          if (source.m_filename) {
             m_filename = new char[strLen(source.m_filename) + 1];
@@ -56,8 +56,8 @@ namespace sdds {
 
    Text::~Text()
    {
-      if (m_filename) delete m_filename;
-      if (m_content) delete m_content;
+      if (m_filename) delete[] m_filename;
+      if (m_content) delete[] m_content;
    }
 
    void Text::read()
@@ -67,7 +67,7 @@ namespace sdds {
 
       ifstream readFile(m_filename);
       //delete curent content
-      if (m_content) delete m_content;
+      if (m_content) delete[] m_content;
 
       if (readFile.is_open()) {
          //allocates memory to the size of the file on the disk + 1
@@ -77,10 +77,12 @@ namespace sdds {
             m_content[index] = temp;
             index++;
          }
+         m_content[index] = '\0';
       }
       else {
          m_content = nullptr;
       }
+     
    }
 
    void Text::write(std::ostream& os) const
@@ -95,8 +97,10 @@ namespace sdds {
       if (index < getFileLength() || index >= 0) {
          return m_content[index];
       }
-      //Undefined Behaviour if goes out of bounds
-      return m_content[getFileLength()];
+      else {
+         //Undefined Behaviour if goes out of bounds
+         return m_content[getFileLength()];
+      }
    }
 
    ostream& operator<<(std::ostream& os, const Text& source) {
