@@ -3,7 +3,7 @@
 #define SDDS_PUBLICATION_H
 #include"Date.h"
 #include "Lib.h"
-#include "Streamable .h"
+#include "Streamable.h"
 
 namespace sdds {
    class Publication : public Streamable {
