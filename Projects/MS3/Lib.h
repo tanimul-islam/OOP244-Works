@@ -1,3 +1,17 @@
+/* Citation and Sources...
+Final Project Milestone 3
+Module: Lib
+Filename: Lib.h
+Version 1.0
+Author	Tanimul Islam
+Revision History
+-----------------------------------------------------------
+Date      Reason
+2023/12/07  Preliminary release
+-----------------------------------------------------------
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.
+-----------------------------------------------------------*/
 #pragma once
 #ifndef SDDS_LIB_H
 #define SDDS_LIB_H

@@ -1,3 +1,16 @@
+/* Citation and Sources...
+Final Project Milestone 3
+Module: Publication
+Filename: Publication.cpp
+Version 1.0
+Author	Tanimul Islam
+Revision History
+-----------------------------------------------------------
+Date      Reason
+-----------------------------------------------------------
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.
+-----------------------------------------------------------*/
 #include <iostream>
 #include <iomanip>
 #include "Publication.h"
@@ -5,7 +18,7 @@
 
 
 namespace sdds {
-   Publication::Publication(){
+   Publication::Publication() {
       setDefault();
    }
 
@@ -25,7 +38,7 @@ namespace sdds {
       if (m_title) {
          delete[] m_title;
       }
-      dynamicStrCpy(m_title, source.m_title);
+      dynamicStrCpy(this->m_title, source.m_title);
       return *this;
    }
 
@@ -68,7 +81,7 @@ namespace sdds {
    }
 
    bool Publication::onLoan() const
-   {  
+   {
       return (m_membership != 0);
    }
 
@@ -99,12 +112,13 @@ namespace sdds {
 
    std::ostream& Publication::write(std::ostream& os) const
    {
+
+      
       if (conIO(os)) {
          //os << m_shelfId << m_title << m_membership << m_date;
-         os << "| " << m_shelfId << " | ";
-         os << std::setw(30) << std::left << std::setfill('.') << m_title << " | ";
+         os << "| " << m_shelfId << " | " << std::setw(30) << std::left << std::setfill('.') << m_title << " | ";
          onLoan() ? os << m_membership : os << " N/A ";
-         os << " | "  << m_date << " |";
+         os << " | " << m_date << " |";
       }
       else {
          os << type() << "\t";
@@ -128,20 +142,22 @@ namespace sdds {
       setDefault();
       if (conIO(istr)) {
          std::cout << "Shelf No: ";
-         istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1);
-         if(strLen(tempShelfId) != SDDS_SHELF_ID_LEN)  istr.setstate(std::ios::failbit);
+         istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1, '\n');
+         if (strLen(tempShelfId) != SDDS_SHELF_ID_LEN) {
+            istr.setstate(std::ios::failbit);
+         }
          std::cout << "Title: ";
-         istr.getline(tempTitle, SDDS_TITLE_WIDTH + 1);
+         istr.getline(tempTitle, SDDS_TITLE_WIDTH + 1, '\n');
          std::cout << "Date: ";
          istr >> tempDate;
       }
       else {
          istr >> tempLibRef;
-         istr.ignore();
+         istr.ignore('\t');
          istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1, '\t');
          istr.getline(tempTitle, SDDS_TITLE_WIDTH + 1, '\t');
          istr >> tempMembership;
-         istr.ignore();
+         istr.ignore('\t');
          istr >> tempDate;
       }
       if (!tempDate) {

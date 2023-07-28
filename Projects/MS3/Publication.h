@@ -1,3 +1,16 @@
+/* Citation and Sources...
+Final Project Milestone 3
+Module: Publication
+Filename: Publication.h
+Version 1.0
+Author	Tanimul Islam
+Revision History
+-----------------------------------------------------------
+Date      Reason
+-----------------------------------------------------------
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.
+-----------------------------------------------------------*/
 #pragma once
 #ifndef SDDS_PUBLICATION_H
 #define SDDS_PUBLICATION_H
@@ -8,7 +21,7 @@
 namespace sdds {
    class Publication : public Streamable {
       char* m_title;
-      char m_shelfId[SDDS_SHELF_ID_LEN];
+      char m_shelfId[SDDS_SHELF_ID_LEN + 1];
       int m_membership;
       int m_libRef;
       Date m_date;

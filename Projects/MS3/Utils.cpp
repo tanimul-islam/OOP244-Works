@@ -136,7 +136,7 @@ namespace sdds {
    void dynamicStrCpy(char*& des, const char* src)
    {
       des = nullptr;
-      if (src) {
+      if (src != nullptr) {
          des = new char[strLen(src) + 1];
          strCpy(des, src);
       }
