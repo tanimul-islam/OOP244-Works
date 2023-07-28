@@ -153,11 +153,11 @@ namespace sdds {
       }
       else {
          istr >> tempLibRef;
-         istr.ignore('\t');
+         istr.ignore();
          istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1, '\t');
          istr.getline(tempTitle, SDDS_TITLE_WIDTH + 1, '\t');
          istr >> tempMembership;
-         istr.ignore('\t');
+         istr.ignore();
          istr >> tempDate;
       }
       if (!tempDate) {
