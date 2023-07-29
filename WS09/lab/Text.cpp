@@ -95,7 +95,7 @@ namespace sdds {
 
    //operator overloading
    const char& Text::operator[](int index)const {
-      if (index < getFileLength() || index >= 0) {
+      if (index < getFileLength()) {
          return m_content[index];
       }
       else {
