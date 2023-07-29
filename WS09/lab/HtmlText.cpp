@@ -63,7 +63,7 @@ namespace sdds {
                }
                break;
             case '<':
-               os << "&lt";
+               os << "&lt;";
                MS = false;
                break;
             case '>':
