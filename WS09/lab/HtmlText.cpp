@@ -33,7 +33,8 @@ namespace sdds {
       if (m_title) delete[] m_title;
    }
 
-   void HtmlText::write(std::ostream& os) const {
+   void HtmlText::write(std::ostream& os) const
+   {
       bool MS = false;
       char tempChar;
 
@@ -49,7 +50,8 @@ namespace sdds {
       if (m_title) {
          int index = 0;
          os << "<h1>" << m_title << "</h1>\n";
-         while ((tempChar = Text::operator[](index)) != '\0') {
+         while (Text::operator[](index) != '\0') {
+            tempChar = Text::operator[](index);
             switch (tempChar) {
             case ' ':
                if (MS) {
@@ -57,14 +59,15 @@ namespace sdds {
                }
                else {
                   MS = true;
+                  os << ' ';
                }
                break;
             case '<':
-               os << "&lt;";
+               os << "&lt";
                MS = false;
                break;
             case '>':
-               os << "&gt;";
+               os << "&gt";
                MS = false;
                break;
             case '\n':
@@ -81,5 +84,4 @@ namespace sdds {
       }
       os << "</body>\n</html>";
    }
-
 }
