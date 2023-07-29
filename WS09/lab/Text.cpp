@@ -63,7 +63,7 @@ namespace sdds {
    void Text::read()
    {
       char temp;
-      int index{ 0 };
+      int index = 0;
 
       ifstream readFile(m_filename);
       //delete curent content
@@ -78,6 +78,7 @@ namespace sdds {
             index++;
          }
          m_content[index] = '\0';
+         readFile.close();
       }
       else {
          m_content = nullptr;
