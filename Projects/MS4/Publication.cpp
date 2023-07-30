@@ -132,7 +132,7 @@ namespace sdds {
    std::istream& Publication::read(std::istream& istr)
    {
       //TEMPORAY VARIABLES
-      char tempTitle[SDDS_TITLE_WIDTH + 1]{}, tempShelfId[SDDS_SHELF_ID_LEN + 1]{};
+      char tempTitle[256]{}, tempShelfId[SDDS_SHELF_ID_LEN + 1]{};
       int tempLibRef = -1, tempMembership = 0;
       Date tempDate;
 
@@ -143,11 +143,14 @@ namespace sdds {
       if (conIO(istr)) {
          std::cout << "Shelf No: ";
          istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1, '\n');
+
          if (strLen(tempShelfId) != SDDS_SHELF_ID_LEN) {
             istr.setstate(std::ios::failbit);
          }
+
          std::cout << "Title: ";
-         istr.getline(tempTitle, SDDS_TITLE_WIDTH + 1, '\n');
+         istr.getline(tempTitle,256);
+
          std::cout << "Date: ";
          istr >> tempDate;
       }
@@ -155,7 +158,7 @@ namespace sdds {
          istr >> tempLibRef;
          istr.ignore();
          istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1, '\t');
-         istr.getline(tempTitle, SDDS_TITLE_WIDTH + 1, '\t');
+         istr.getline(tempTitle, 256, '\t');
          istr >> tempMembership;
          istr.ignore();
          istr >> tempDate;

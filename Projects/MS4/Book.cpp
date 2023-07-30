@@ -23,18 +23,22 @@ namespace sdds
 
    Book::Book(const Book& source) :Publication(source)
    {
-      if (authorName) delete[] authorName;
-      dynamicStrCpy(this->authorName, source.authorName);
+      if (source.authorName) {
+         delete[] authorName;
+         dynamicStrCpy(this->authorName, source.authorName);
+      }
       
    }
 
    Book& Book::operator=(const Book& source)
    {
-      Publication::operator=(source);
-
-      if (authorName) delete[] authorName;
-      dynamicStrCpy(this->authorName, source.authorName);
-
+      if (this != &source) {
+         Publication::operator=(source);
+         if (source.authorName) {
+            delete[] authorName;
+            dynamicStrCpy(this->authorName, source.authorName);
+         }
+      }
       return *this;
       
    }
@@ -60,7 +64,7 @@ namespace sdds
    void Book::set(int member_id) 
    {
       Publication::set(member_id);
-      resetDate();
+      Publication::resetDate();
    }
 
    std::ostream& Book::write(std::ostream& os) const
@@ -91,7 +95,7 @@ namespace sdds
          std::cout << "Author: ";
       }
       else {
-         istr.ignore('\t');
+         istr.ignore(1000,'\t');
       }
       istr.get(tempAuthorName, 256);
       if (istr) {

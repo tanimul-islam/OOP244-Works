@@ -15,7 +15,7 @@
 
 namespace sdds {
    class Book : public Publication {
-      char* authorName{};
+      char* authorName;
    public:
       Book();
       Book(const Book& source);
