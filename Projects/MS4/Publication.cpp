@@ -112,11 +112,12 @@ namespace sdds {
 
    std::ostream& Publication::write(std::ostream& os) const
    {
+      char tempTitle[SDDS_TITLE_WIDTH + 1] = { 0 };
+      strnCpy(tempTitle, m_title, SDDS_TITLE_WIDTH);
 
-      
       if (conIO(os)) {
          //os << m_shelfId << m_title << m_membership << m_date;
-         os << "| " << m_shelfId << " | " << std::setw(30) << std::left << std::setfill('.') << m_title << " | ";
+         os << "| " << m_shelfId << " | " << std::setw(30) << std::left << std::setfill('.') << tempTitle << " | ";
          onLoan() ? os << m_membership : os << " N/A ";
          os << " | " << m_date << " |";
       }
@@ -142,7 +143,7 @@ namespace sdds {
       setDefault();
       if (conIO(istr)) {
          std::cout << "Shelf No: ";
-         istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1, '\n');
+         istr.getline(tempShelfId, SDDS_SHELF_ID_LEN + 1);
 
          if (strLen(tempShelfId) != SDDS_SHELF_ID_LEN) {
             istr.setstate(std::ios::failbit);
