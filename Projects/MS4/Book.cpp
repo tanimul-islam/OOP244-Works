@@ -70,15 +70,16 @@ namespace sdds
    std::ostream& Book::write(std::ostream& os) const
    {
       Publication::write(os);
-      char tempAuthorName[SDDS_AUTHOR_WIDTH + 1] = { 0 };
-      strnCpy(tempAuthorName, authorName, SDDS_AUTHOR_WIDTH);
+      
       if (conIO(os)) {
+         char tempAuthorName[SDDS_AUTHOR_WIDTH + 1] = { 0 };
+         strnCpy(tempAuthorName, authorName, SDDS_AUTHOR_WIDTH);
          os << " ";
-         os << tempAuthorName << " |";
+         os << std::setw(SDDS_AUTHOR_WIDTH) << std::left << std::setfill(' ') << tempAuthorName << " |";
       }
       else {
          os << '\t';
-         os << tempAuthorName;
+         os << authorName;
       }
       return os;
    }
