@@ -15,8 +15,6 @@
 #include <iostream>
 #include <fstream>
 #include "LibApp.h"
-#include"Book.h"
-#include "Date.h"
 #include"Utils.h"
 #include "PublicationSelector.h"
 
@@ -100,7 +98,7 @@ namespace sdds {
 
       for (i = 0; i < m_NOLP; i++) {
          if (m_publicationPtr[i]->getRef() != 0) {
-            writeFile << m_publicationPtr[i] << endl;
+            writeFile << *m_publicationPtr[i] << endl;
          }
       }
       writeFile.close();

@@ -17,7 +17,9 @@
 #include <iostream>
 #include "Menu.h"
 #include "Lib.h"
+#include "Streamable.h"
 #include "Publication.h"
+#include "Book.h"
 
 namespace sdds {
    class LibApp {
