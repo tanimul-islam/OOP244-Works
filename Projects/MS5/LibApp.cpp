@@ -156,7 +156,7 @@ namespace sdds {
    void LibApp::returnPub() {
       int libRef;
       double penaltyFee;
-      bool flag = false;
+     
       int loanDays;
       cout << "Return publication to the library" << endl;
       libRef = search(2);
