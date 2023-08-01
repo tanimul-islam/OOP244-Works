@@ -162,7 +162,7 @@ namespace sdds {
          loanDays = Date() - getPub(libRef)->checkoutDate();
          if (loanDays > 15) {
             penaltyFee = (loanDays - SDDS_MAX_LOAN_DAYS) * 0.5;
-            cout << "Please pay $ " << penaltyFee << " penalty for being " << (loanDays - SDDS_MAX_LOAN_DAYS) << " days late!";
+            cout << "Please pay $" << penaltyFee << " penalty for being " << (loanDays - SDDS_MAX_LOAN_DAYS) << " days late!"<<endl;
          }
          getPub(libRef)->set(0);
          m_changed = true;
