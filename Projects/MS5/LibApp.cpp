@@ -225,10 +225,10 @@ namespace sdds {
    //
    void LibApp::removePublication() {
       int libRef;
-      cout << "Removing publication from library" << endl;
+      cout << "Removing publication from the library" << endl;
       libRef = search(1);
       if (libRef) {
-         if (confirm("Remove this publication from library?")) {
+         if (confirm("Remove this publication from the library?")) {
             getPub(libRef)->setRef(0);
             m_changed = true;
             cout << "Publication removed" << endl;
