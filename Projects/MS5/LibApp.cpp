@@ -188,7 +188,7 @@ namespace sdds {
 
          if (pubType == 0) {
             cout << "Aborted!" << endl;
-            flag = false;
+            flag = true;
          }
          else if (pubType == 1) {
             pubPtr = new Book;
@@ -249,7 +249,7 @@ namespace sdds {
             cout << "Enter Membership number: ";
             do
             {  
-               membershipInput = getUserInput(10000, 99999);
+               membershipInput = getUserInput(10000, 99999, "Invalid membership number, try again: ");
                if (membershipInput < 10000 && membershipInput > 99999)
                   cout << "Invalid membership number, try again: ";
             } while (membershipInput < 10000 && membershipInput > 99999);

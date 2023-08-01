@@ -11,7 +11,8 @@
 // -----------------------------------------------------------
 // Name            Date            Reason
 //	Version 2		07/26/2023			function for synamic allocation
-/////////////////////////////////////////////////////////////////
+//version 3      08/01/2023      updated the gerUserInput() with a new arg
+/////1////////////////////////////////////////////////////////////
 ***********************************************************************/
 
 #include "Utils.h"
@@ -112,7 +113,7 @@ namespace sdds {
    }
 
    //Function for getting the user input for menu
-   int getUserInput(int lowerLimit, int upperLimit) {
+      int getUserInput(int lowerLimit, int upperLimit, const char* message) {
       int input;
       bool validInput = false;
 
@@ -120,10 +121,10 @@ namespace sdds {
          if (!(std::cin >> input)) {
             std::cin.clear();
             std::cin.ignore(45678, '\n');
-            std::cout << "Invalid Selection, try again: ";
+            std::cout << message;
          }
          else if (input < lowerLimit || input > upperLimit) {
-            std::cout << "Invalid Selection, try again: ";
+            std::cout << message;
          }
          else {
             validInput = true;

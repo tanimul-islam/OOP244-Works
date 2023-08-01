@@ -28,7 +28,7 @@ namespace sdds {
 	void strCat(char* des, const char* src);
 
 	//Module-Functions
-	int getUserInput(int lowerLimit, int upperLimit);
+	int getUserInput(int lowerLimit, int upperLimit, const char* message = "Invalid Selection, try again: "); // default message updated
 
 	//Dynamic-Allocation helper
 	void dynamicStrCpy(char*& des, const char* src);
