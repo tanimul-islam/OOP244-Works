@@ -14,6 +14,7 @@
 ***********************************************************************/
 #include <iostream>
 #include <fstream>
+#include<iomanip>
 #include "LibApp.h"
 #include"Utils.h"
 #include "PublicationSelector.h"
@@ -161,8 +162,9 @@ namespace sdds {
       if (libRef > 0 && confirm("Return Publication?")) {
          loanDays = Date() - getPub(libRef)->checkoutDate();
          if (loanDays > 15) {
-            penaltyFee = (loanDays - SDDS_MAX_LOAN_DAYS) * 0.5;
-            cout << "Please pay $" << penaltyFee << " penalty for being " << (loanDays - SDDS_MAX_LOAN_DAYS) << " days late!"<<endl;
+            penaltyFee = (double)(loanDays - SDDS_MAX_LOAN_DAYS) * 0.5;
+            cout << "Please pay $" << fixed << setprecision(2) << penaltyFee << " penalty for being "
+               << (loanDays - SDDS_MAX_LOAN_DAYS) << " days late!" << std::endl;
          }
          getPub(libRef)->set(0);
          m_changed = true;
