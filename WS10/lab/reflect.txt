@@ -1,0 +1,9 @@
+/*Name: Tanimul Islam
+Email: tislam38@myseneca.ca
+ID: 129414223
+Date: 08/03/2023
+********************************
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.*/
+
+Function templates in C++ are a powerful tool that enables the creation of versatile and reusable functions capable of working with multiple data types. They allow developers to write a single template function that can perform similar operations on different types of data, eliminating the need for redundant code. In this workshop, two function templates are showcased: search and listArrayElements. The search template performs a linear search within an array of objects for a specified key value. It uses the overloaded equality comparison (==) operator to determine matches and adds them to a Collection. The listArrayElements template displays elements from an array using the output stream insertion (<<) operator. Function templates enhance code modularity and efficiency by adapting the same logic for various data types. They simplify development, reduce code duplication, and ensure a consistent approach to similar tasks across different contexts. However, caution is advised when using operator overloading, as behavior can vary depending on data types.
